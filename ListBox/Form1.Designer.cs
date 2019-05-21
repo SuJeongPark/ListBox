@@ -30,7 +30,7 @@
         {
             this.lbView = new System.Windows.Forms.ListBox();
             this.lblResult = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtList = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -42,6 +42,7 @@
             this.lbView.Name = "lbView";
             this.lbView.Size = new System.Drawing.Size(259, 208);
             this.lbView.TabIndex = 0;
+            this.lbView.SelectedIndexChanged += new System.EventHandler(this.LbView_SelectedIndexChanged);
             // 
             // lblResult
             // 
@@ -52,12 +53,13 @@
             this.lblResult.TabIndex = 1;
             this.lblResult.Text = "결과 : ";
             // 
-            // textBox1
+            // txtList
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 253);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(259, 21);
-            this.textBox1.TabIndex = 2;
+            this.txtList.Location = new System.Drawing.Point(12, 253);
+            this.txtList.Name = "txtList";
+            this.txtList.Size = new System.Drawing.Size(259, 21);
+            this.txtList.TabIndex = 2;
+            this.txtList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtList_KeyPress);
             // 
             // btnAdd
             // 
@@ -67,6 +69,7 @@
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "추가";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // Form1
             // 
@@ -74,13 +77,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 340);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtList);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.lbView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "리스트 추가";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,7 +94,7 @@
 
         private System.Windows.Forms.ListBox lbView;
         private System.Windows.Forms.Label lblResult;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtList;
         private System.Windows.Forms.Button btnAdd;
     }
 }
